@@ -179,4 +179,37 @@
     });
   </script>
 </body>
+</html>          bigMsg.classList.add('show');
+
+          confetti({
+            particleCount: 200,
+            spread: 120,
+            origin: { y: 0.6 }
+          });
+
+          // Balloons generate
+          for(let i=0;i<10;i++){
+            const b=document.createElement('div');
+            b.classList.add('balloon');
+            b.style.left=Math.random()*100+'vw';
+            b.style.background=`hsl(${Math.random()*360},70%,60%)`;
+            b.style.animationDuration=(8+Math.random()*4)+'s';
+            document.body.appendChild(b);
+            setTimeout(()=>b.remove(),12000);
+          }
+
+        },6000);
+
+        // Cake show
+        setTimeout(()=>document.getElementById('cake').classList.add('show'),9000);
+
+      } else {
+        music.pause();
+        playBtn.textContent='Play This ▶';
+        document.querySelectorAll('.wish,.big-msg,.cake').forEach(el=>el.classList.remove('show'));
+      }
+      playing=!playing;
+    });
+  </script>
+</body>
 </html>
